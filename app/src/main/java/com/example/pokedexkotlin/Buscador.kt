@@ -1,5 +1,6 @@
 package com.example.pokedexkotlin
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,7 +13,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -31,10 +35,10 @@ class Buscador : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PokedexKotlinTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Surface(
+
+                ){
+                    PokedexApp()
                 }
             }
         }
@@ -58,9 +62,11 @@ class Buscador : ComponentActivity() {
     }
 
     @Composable
-    fun Greeting(modifier: Modifier = Modifier) {
+    fun PokedexApp(modifier: Modifier = Modifier) {
 
-        var pokemonText by remember{ mutableStateOf("")}
+        var pokemonName by remember{ mutableStateOf("Nombre del Pokémon")}
+        var pokemonNumber by remember{ mutableStateOf("XXXX")}
+        var pokemonImage by remember{ mutableStateOf("")}
 
         Column(
             modifier = Modifier
@@ -71,18 +77,45 @@ class Buscador : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
+            Image(
+                //painter = ,
+                contentDescription = "Imagen del Pokémon"
+            )
             Text(
-                text = "Propina de $tip",
+                text = pokemonName,
                 style = MaterialTheme.typography.displaySmall
             )
 
             NumberTextFild(
-                label = "Numero de pokedex",
-                value = pokemonText,
-                onValueChange = {pokemonText = it},
+                label = "Numero de Pokédex",
+                value = pokemonNumber,
+                onValueChange = {pokemonNumber = it},
                 modifier = Modifier.padding(bottom = 32.dp)
                     .fillMaxWidth()
             )
+            Button(
+                onClick = {
+                    val id = pokemonNumber
+
+                    val api = API()
+
+                    api.obtainAllPokemon(this, Runnable){
+                        val lista = api.getMyPokedex()
+
+                        if (existe en lista){
+                            pokemonName = pokemon.name
+                            pokemonImage = pokemon.imagen
+                        } else {
+                            pokemonName = "No encontrado"
+                            pokemonImage = ""
+                        }
+                    }
+                }
+            ) {
+                Text(
+                    text = "Buscar Pokémon"
+                )
+            }
 
         }
     }
@@ -93,7 +126,7 @@ class Buscador : ComponentActivity() {
     @Composable
     fun GreetingPreview() {
         PokedexKotlinTheme {
-            Greeting()
+            PokedexApp()
         }
     }
 }
