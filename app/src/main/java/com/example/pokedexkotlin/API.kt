@@ -1,35 +1,44 @@
 package com.example.pokedexkotlin
 
 import android.content.Context
-import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
 
 class API {
-    val myPokedex: ArrayList<Pokemon> = ArrayList()
-    val fullURLList: ArrayList<String> = ArrayList()
+    val myPokedex: kotlin.collections.ArrayList<Pokemon> = ArrayList()
+    val fullURLList: Array<String?> = arrayOfNulls(50)
 
-    fun obtainAllPokemon(ct : Context, onComplete : Runnable){
+
+    fun obtainAllPokemon(ct: Context, onComplete: () -> Unit){
         val queue : RequestQueue = Volley.newRequestQueue(ct)
-        val url : String = "https://pokeapi.co/api/v2/pokemon?limit=1028&offset=0"
+        val url : String = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=0"
 
-        val stringRequest : StringRequest = StringRequest(
-            Request.Method.GET,
+        var stringRequest : StringRequest = StringRequest(
             url,
-            response ->
-            try{
-                val jObj : JSONObject = JSONObject(response)
-                val results = jObj.getJSONArray("results")
-                //bucle
+            { response ->
+                try {
+                    val jObj: JSONObject = JSONObject(response)
+                    val results : JSONArray = jObj.getJSONArray("results")
+                    for(i in 0 until results.length()){
+                        fullURLList[i] = jObj.getJSONArray("results").getJSONObject(i).getString("url");
+                    }
 
-                gatherAllPokemonInfo(ct, onComplete)
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
+                    gatherAllPokemonInfo(ct){
+                        onComplete()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+
+            },
+            { }
+
+
 
         )
         queue.add(stringRequest)
@@ -44,8 +53,7 @@ class API {
 
         for(url in fullURLList){
             val pokemonRequest : StringRequest = StringRequest(
-                Request.Method.GET, url,
-                response ->
+                url, { response ->
                     val jObj: JSONObject = JSONObject(response)
 
                     val name: String = jObj.getString("name")
@@ -55,13 +63,15 @@ class API {
                         .getJSONObject("official-artwork")
                         .getString("front_default")
 
-                    val pokemon : Pokemon = Pokemon(
+                    val pokemon: Pokemon = Pokemon(
                         name = name,
                         number = id,
                         imagen = image
                     )
 
                     myPokedex.add(pokemon)
+                },
+                {}
 
             )
 
@@ -69,7 +79,8 @@ class API {
         }
     }
 
-    fun getMyPokedex(): ArrayList<Pokemon> {
+
+    fun getArrayMyPokedex(): ArrayList<Pokemon> {
         return myPokedex
     }
 
