@@ -1,6 +1,7 @@
 package com.example.pokedexkotlin
 
 import android.content.Context
+import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -19,6 +20,7 @@ class API {
         val url : String = "https://pokeapi.co/api/v2/pokemon?limit=50&offset=0"
 
         var stringRequest : StringRequest = StringRequest(
+            Request.Method.GET,
             url,
             { response ->
                 try {
@@ -44,7 +46,7 @@ class API {
         queue.add(stringRequest)
     }
 
-    fun gatherAllPokemonInfo (ct : Context, onComplete : Runnable){
+    fun gatherAllPokemonInfo (ct : Context, onComplete: () -> Unit){
         myPokedex.clear()
         val queue : RequestQueue = Volley.newRequestQueue(ct)
 
@@ -53,6 +55,7 @@ class API {
 
         for(url in fullURLList){
             val pokemonRequest : StringRequest = StringRequest(
+                Request.Method.GET,
                 url, { response ->
                     val jObj: JSONObject = JSONObject(response)
 
