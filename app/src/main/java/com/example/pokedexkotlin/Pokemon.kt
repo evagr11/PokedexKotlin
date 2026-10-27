@@ -1,9 +1,8 @@
 package com.example.pokedexkotlin
 
-import android.media.Image
-
 class Pokemon (
     var name : String,
     var number : Int,
-    var imagen : String
+    var imagen : String,
+    var tipos : List<String> = emptyList()
 )

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -70,10 +71,11 @@ class Buscador : ComponentActivity() {
 
     @Composable
     fun PokedexApp(modifier: Modifier = Modifier) {
-
         var pokemonName by remember{ mutableStateOf("Nombre del Pokémon")}
-        var pokemonNumber by remember{ mutableStateOf("XXXX")}
+        var pokemonTipos by remember{ mutableStateOf("")}
+        var pokemonNumber by remember{ mutableStateOf("")}
         var pokemonImage by remember{ mutableStateOf("")}
+        var buscando by remember{ mutableStateOf(false)}
         val ct : Context = LocalContext.current
 
         Column(
@@ -91,49 +93,58 @@ class Buscador : ComponentActivity() {
                 contentScale = ContentScale.Crop,
                 error = painterResource(R.drawable.ic_launcher_foreground),
                 placeholder = painterResource(R.drawable.ic_launcher_background),
-                modifier = Modifier.clip(CircleShape)
+                modifier = Modifier
+                    .size(220.dp)
+                    .clip(CircleShape)
             )
             Text(
                 text = pokemonName,
                 style = MaterialTheme.typography.displaySmall
             )
-
-
+            Text(
+                text = pokemonTipos,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(bottom = 24.dp)
+            )
             NumberTextFild(
-                label = "Numero de Pokédex",
+                label = "Número de Pokédex (1-1025)",
                 value = pokemonNumber,
                 onValueChange = {pokemonNumber = it},
                 modifier = Modifier.padding(bottom = 32.dp)
                     .fillMaxWidth()
             )
             Button(
+                enabled = !buscando,
                 onClick = {
-                    val idBuscado : Int = pokemonNumber.toInt()
-
-                    val api = API()
-
-                    api.obtainAllPokemon(ct){
-                        val lista : ArrayList<Pokemon> = api.getArrayMyPokedex()
-
-                        if (lista.size >= idBuscado){
-                            pokemonName = lista.get(idBuscado).name
-                            pokemonImage = lista.get(idBuscado).imagen
-                        } else {
-                            pokemonName = "No encontrado"
-                            pokemonImage = ""
+                    val idBuscado : Int? = pokemonNumber.trim().toIntOrNull()
+                    if (idBuscado == null || idBuscado < 1) {
+                        pokemonName = "Escribe un número válido"
+                        pokemonTipos = ""
+                        pokemonImage = ""
+                    } else {
+                        buscando = true
+                        pokemonName = "Buscando..."
+                        API().buscarPokemon(ct, idBuscado) { pokemon ->
+                            buscando = false
+                            if (pokemon != null) {
+                                pokemonName = "#${pokemon.number} " + pokemon.name.replaceFirstChar { it.uppercase() }
+                                pokemonTipos = pokemon.tipos.joinToString(" · ") { it.replaceFirstChar { c -> c.uppercase() } }
+                                pokemonImage = pokemon.imagen
+                            } else {
+                                pokemonName = "No encontrado"
+                                pokemonTipos = ""
+                                pokemonImage = ""
+                            }
                         }
                     }
                 }
             ) {
                 Text(
-                    text = "Buscar Pokémon"
+                    text = if (buscando) "Buscando..." else "Buscar Pokémon"
                 )
             }
-
         }
     }
-
-
 
     @Preview(showBackground = true)
     @Composable
