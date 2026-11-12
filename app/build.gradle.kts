@@ -70,6 +70,8 @@ dokka {
     moduleName.set("Pokédex Kotlin")
     dokkaPublications.html {
         outputDirectory.set(rootProject.layout.projectDirectory.dir("docs/kdoc"))
+        // Oculta lo heredado de Android (ComponentActivity...) para que se vea solo el código propio
+        suppressInheritedMembers.set(true)
     }
     dokkaSourceSets.configureEach {
         documentedVisibilities.set(
