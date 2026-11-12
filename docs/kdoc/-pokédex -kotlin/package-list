@@ -1,0 +1,31 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.example.pokedexkotlin.ui.theme////PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/index.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//DarkColorScheme/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-dark-color-scheme.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//LightColorScheme/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-light-color-scheme.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//Pink40/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-pink40.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//Pink80/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-pink80.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//PokedexKotlinTheme/#kotlin.Boolean#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-pokedex-kotlin-theme.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//Purple40/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-purple40.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//Purple80/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-purple80.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//PurpleGrey40/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-purple-grey40.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//PurpleGrey80/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-purple-grey80.html
+$dokka.location:com.example.pokedexkotlin.ui.theme//Typography/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin.ui.theme/-typography.html
+$dokka.location:com.example.pokedexkotlin////PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/index.html
+$dokka.location:com.example.pokedexkotlin/API///PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-a-p-i/index.html
+$dokka.location:com.example.pokedexkotlin/API/API/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-a-p-i/-a-p-i.html
+$dokka.location:com.example.pokedexkotlin/API/buscarPokemon/#android.content.Context#kotlin.Int#kotlin.Function1[com.example.pokedexkotlin.Pokemon?,kotlin.Unit]/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-a-p-i/buscar-pokemon.html
+$dokka.location:com.example.pokedexkotlin/Buscador///PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-buscador/index.html
+$dokka.location:com.example.pokedexkotlin/Buscador/Buscador/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-buscador/-buscador.html
+$dokka.location:com.example.pokedexkotlin/Buscador/GreetingPreview/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-buscador/-greeting-preview.html
+$dokka.location:com.example.pokedexkotlin/Buscador/NumberTextFild/#kotlin.String#kotlin.String#kotlin.Function1[kotlin.String,kotlin.Unit]#androidx.compose.ui.Modifier/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-buscador/-number-text-fild.html
+$dokka.location:com.example.pokedexkotlin/Buscador/PokedexApp/#androidx.compose.ui.Modifier/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-buscador/-pokedex-app.html
+$dokka.location:com.example.pokedexkotlin/Buscador/onCreate/#android.os.Bundle?/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-buscador/on-create.html
+$dokka.location:com.example.pokedexkotlin/Pokemon///PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-pokemon/index.html
+$dokka.location:com.example.pokedexkotlin/Pokemon/Pokemon/#kotlin.String#kotlin.Int#kotlin.String#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-pokemon/-pokemon.html
+$dokka.location:com.example.pokedexkotlin/Pokemon/imagen/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-pokemon/imagen.html
+$dokka.location:com.example.pokedexkotlin/Pokemon/name/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-pokemon/name.html
+$dokka.location:com.example.pokedexkotlin/Pokemon/number/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-pokemon/number.html
+$dokka.location:com.example.pokedexkotlin/Pokemon/tipos/#/PointingToDeclaration/-pokédex -kotlin/com.example.pokedexkotlin/-pokemon/tipos.html
+com.example.pokedexkotlin
+com.example.pokedexkotlin.ui.theme
