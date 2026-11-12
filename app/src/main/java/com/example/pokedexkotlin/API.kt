@@ -8,11 +8,22 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONException
 import org.json.JSONObject
 
+/**
+ * Hace las peticiones a la PokéAPI con Volley.
+ */
 class API {
 
-    // Busca un Pokémon por su número de la Pokédex en la PokéAPI.
-    // Cuando llega la respuesta llama a onResult con el Pokémon, o con null si no existe
-    // o si no hay conexión.
+    /**
+     * Busca un Pokémon por su número de la Pokédex.
+     *
+     * Pide `pokeapi.co/api/v2/pokemon/{numero}` y convierte el JSON en un [Pokemon].
+     * La respuesta llega de forma asíncrona por [onResult].
+     *
+     * @param ct contexto para crear la cola de Volley.
+     * @param numero número de la Pokédex que se busca.
+     * @param onResult recibe el [Pokemon], o `null` si no existe, no hay conexión
+     * o el JSON no tiene el formato esperado.
+     */
     fun buscarPokemon(ct: Context, numero: Int, onResult: (Pokemon?) -> Unit) {
         val queue: RequestQueue = Volley.newRequestQueue(ct)
         val url: String = "https://pokeapi.co/api/v2/pokemon/$numero"

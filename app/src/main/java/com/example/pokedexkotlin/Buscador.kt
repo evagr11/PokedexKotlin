@@ -37,7 +37,16 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.pokedexkotlin.ui.theme.PokedexKotlinTheme
 
+/**
+ * Única pantalla de la app: imagen, nombre y tipos del Pokémon, el campo del
+ * número y el botón de búsqueda, hechos con Jetpack Compose.
+ */
 class Buscador : ComponentActivity() {
+    /**
+     * Activa el modo de pantalla completa y carga [PokedexApp] dentro del tema.
+     *
+     * @param savedInstanceState estado guardado de la Activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -52,6 +61,14 @@ class Buscador : ComponentActivity() {
         }
     }
 
+    /**
+     * Campo de texto de una línea con el teclado numérico.
+     *
+     * @param label texto de la etiqueta.
+     * @param value texto actual del campo.
+     * @param onValueChange se llama con el texto nuevo cada vez que cambia.
+     * @param modifier modificador del campo.
+     */
     @Composable
     fun NumberTextFild(label : String, value: String, onValueChange : (String)-> Unit, modifier: Modifier = Modifier){
         TextField(
@@ -69,6 +86,15 @@ class Buscador : ComponentActivity() {
 
     }
 
+    /**
+     * Contenido de la pantalla y su estado.
+     *
+     * Al pulsar el botón comprueba que el número sea válido, desactiva el botón mientras
+     * busca y, con la respuesta de [API.buscarPokemon], muestra el Pokémon o
+     * «No encontrado».
+     *
+     * @param modifier modificador de la pantalla.
+     */
     @Composable
     fun PokedexApp(modifier: Modifier = Modifier) {
         var pokemonName by remember{ mutableStateOf("Nombre del Pokémon")}

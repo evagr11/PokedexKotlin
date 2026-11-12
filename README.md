@@ -5,6 +5,7 @@
 <div align="center">
   <a href="https://github.com/evagr11/PokedexKotlin/releases/latest" target="_blank"><img src="https://img.shields.io/badge/Descargar_APK-C711E1?style=for-the-badge&logo=android&logoColor=white" alt="Descargar APK"></a>
   <a href="https://github.com/evagr11/PokedexKotlin" target="_blank"><img src="https://img.shields.io/badge/Ver_Código-7F52FF?style=for-the-badge&logo=github&logoColor=white" alt="Ver Código"></a>
+  <a href="https://evagr11.github.io/PokedexKotlin/kdoc/" target="_blank"><img src="https://img.shields.io/badge/KDoc_(Dokka)-C711E1?style=for-the-badge&logo=kotlin&logoColor=white" alt="KDoc"></a>
   <a href="https://github.com/evagr11/Pokedex" target="_blank"><img src="https://img.shields.io/badge/Versión_en_Java-E44857?style=for-the-badge&logo=openjdk&logoColor=white" alt="Versión en Java"></a>
   <a href="docs/Documentacion_PokedexKotlin.pdf" target="_blank"><img src="https://img.shields.io/badge/Documentación-7F52FF?style=for-the-badge&logo=latex&logoColor=white" alt="Documentación"></a>
   <a href="https://evagr11.github.io/Curriculum/proyectos/pokedex-kotlin.html" target="_blank"><img src="https://img.shields.io/badge/Ver_Web-C711E1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Ver Web"></a>
@@ -83,7 +84,8 @@ PokedexKotlin/
     ├── res/                 # Iconos, textos y temas
     └── AndroidManifest.xml  # Permiso de internet
 docs/
-└── Documentacion_PokedexKotlin.pdf  # Documentación técnica en LaTeX
+├── Documentacion_PokedexKotlin.pdf  # Documentación técnica en LaTeX
+└── kdoc/                            # KDoc generado con Dokka (GitHub Pages)
 .github/readme/                      # Mockup y capturas de este README
 ```
 
