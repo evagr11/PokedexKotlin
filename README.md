@@ -19,32 +19,32 @@
   <img src=".github/readme/Mockup.jpg" alt="Mockup de Pokédex Kotlin: un móvil con Bulbasaur y tres móviles con la pantalla inicial, Shiinotic y Pecharunt" width="100%"/>
 </div>
 
-# 🚀 Sobre el Proyecto
+# Sobre el Proyecto
 
 **Pokédex Kotlin** es un buscador de Pokémon para Android hecho con **Kotlin y Jetpack Compose**. Escribes el número de la Pokédex, pulsas *Buscar* y la app consulta la [PokéAPI](https://pokeapi.co/) para mostrar su ilustración oficial, su nombre y sus tipos.
 
 Es la versión en Kotlin y Compose de mi [Pokédex en Java](https://github.com/evagr11/Pokedex), hecha con vistas XML y `RecyclerView`. Tenerlas juntas permite comparar cómo se resuelve lo mismo con interfaz declarativa y con el sistema clásico de vistas.
 
-✨ **Características principales:**
+**Características principales:**
 
-*   🔎 **Búsqueda por número:** Cualquier Pokémon de la 1 a la 1025, con una sola petición a `pokeapi.co/api/v2/pokemon/{número}`.
-*   🖼️ **Ilustración oficial:** La imagen se descarga y se guarda en caché con **Coil** (`AsyncImage`), con imagen de reserva mientras carga o si falla.
-*   🏷️ **Tipos del Pokémon:** Se muestran debajo del nombre (por ejemplo, *Grass · Poison*).
-*   ⏳ **Estados de la búsqueda:** El botón se desactiva y muestra "Buscando..." mientras llega la respuesta, y avisa si el número no es válido o el Pokémon no existe.
-*   🔢 **Teclado numérico:** El campo de texto abre directamente el teclado de números.
+*   **Búsqueda por número:** Cualquier Pokémon de la 1 a la 1025, con una sola petición a `pokeapi.co/api/v2/pokemon/{número}`.
+*   **Ilustración oficial:** La imagen se descarga y se guarda en caché con **Coil** (`AsyncImage`), con imagen de reserva mientras carga o si falla.
+*   **Tipos del Pokémon:** Se muestran debajo del nombre (por ejemplo, *Grass · Poison*).
+*   **Estados de la búsqueda:** El botón se desactiva y muestra "Buscando..." mientras llega la respuesta, y avisa si el número no es válido o el Pokémon no existe.
+*   **Teclado numérico:** El campo de texto abre directamente el teclado de números.
 
-### 📸 Galería
+### Galería
 
 | Inicio | Bulbasaur (#1) | Shiinotic (#756) | Pecharunt (#1025) | No encontrado |
 | :----: | :------------: | :--------------: | :---------------: | :-----------: |
 | <img src=".github/readme/01_inicio.png" alt="Pantalla inicial con el campo del número" width="150"/> | <img src=".github/readme/02_bulbasaur.png" alt="Búsqueda del número 1: Bulbasaur, Grass y Poison" width="150"/> | <img src=".github/readme/03_shiinotic.png" alt="Búsqueda del número 756: Shiinotic, Grass y Fairy" width="150"/> | <img src=".github/readme/04_pecharunt.png" alt="Búsqueda del número 1025: Pecharunt, Poison y Ghost" width="150"/> | <img src=".github/readme/05_no_encontrado.png" alt="Búsqueda del número 1026: No encontrado" width="150"/> |
 | *Antes de buscar.* | *El primero.* | *Uno cualquiera.* | *El último.* | *Fuera de rango.* |
 
-# 🧠 Contexto del Proyecto
+# Contexto del Proyecto
 
 Proyecto del ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)** para practicar **Jetpack Compose**: funciones `@Composable`, estado con `remember` y `mutableStateOf`, componentes de Material 3 y llamadas a una API REST desde una interfaz declarativa.
 
-# 🛠️ Stack Tecnológico
+# Stack Tecnológico
 
 <div align="center">
   <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin">
@@ -71,7 +71,7 @@ Proyecto del ciclo de **Desarrollo de Aplicaciones Multiplataforma (DAM)** para 
 
 </div>
 
-# 📂 Estructura del Proyecto
+# Estructura del Proyecto
 
 ```bash
 PokedexKotlin/
@@ -89,9 +89,9 @@ docs/
 .github/readme/                      # Mockup y capturas de este README
 ```
 
-# 🚀 Cómo Utilizar el Proyecto
+# Cómo Utilizar el Proyecto
 
-### 📲 Instalar la APK
+### Instalar la APK
 
 La forma más rápida de probar la app es instalar la APK de la última versión, en [Releases](https://github.com/evagr11/PokedexKotlin/releases/latest):
 
@@ -101,7 +101,7 @@ La forma más rápida de probar la app es instalar la APK de la última versión
 
 > Necesita **Android 7.0 (API 24)** o superior y **conexión a internet**, porque los datos llegan de la PokéAPI.
 
-### 🧑‍💻 Compilar desde el código
+### Compilar desde el código
 
 Para ejecutarlo necesitas **Android Studio** y conexión a internet.
 
@@ -112,15 +112,6 @@ Para ejecutarlo necesitas **Android Studio** y conexión a internet.
 2.  **Abre el proyecto en Android Studio:** `File` > `Open` y selecciona la carpeta `PokedexKotlin`.
 3.  **Sincroniza Gradle** y ejecuta la app en un emulador o en un móvil con `Run 'app'`.
 4.  Escribe un número (por ejemplo `25`) y pulsa **Buscar Pokémon**.
-
-# 🎯 Mejoras futuras
-
-- 🔤 Buscar también por nombre.
-- 🎨 Cambiar el color de fondo según el tipo principal, como en la versión en Java.
-- 🧱 Pasar la lógica a un `ViewModel` con `StateFlow` y las peticiones a **Retrofit** con corrutinas.
-- 📜 Añadir una lista con todos los Pokémon usando `LazyVerticalGrid`.
-- 🖼️ Cambiar la imagen de reserva (ahora es el robot de Android) por una Pokéball, o no mostrar nada hasta la primera búsqueda.
-- 🆔 Cambiar el identificador `com.example.pokedexkotlin` por uno propio.
 
 <br>
 
